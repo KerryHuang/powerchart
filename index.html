@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧家庭電器儀表板</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>智慧家庭電器儀表板</h1>
+            <div class="header-info">
+                <div class="current-time" id="currentTime"></div>
+                <div class="total-power">
+                    <span class="label">目前總耗電：</span>
+                    <span class="value" id="totalPower">0</span>
+                    <span class="unit">kW</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Appliances Status -->
+                <section class="card appliances-section">
+                    <h2 class="card-title">家電狀態</h2>
+                    <div class="appliances-grid" id="appliancesGrid">
+                        <!-- Dynamic content -->
+                    </div>
+                </section>
+
+                <!-- Peak Usage Time -->
+                <section class="card peak-usage-section">
+                    <h2 class="card-title">今日最高用電時段</h2>
+                    <div class="peak-content">
+                        <div class="peak-time">
+                            <span class="peak-icon">⚡</span>
+                            <div class="peak-info">
+                                <div class="peak-hour" id="peakHour">--</div>
+                                <div class="peak-label">時段</div>
+                            </div>
+                        </div>
+                        <div class="peak-value">
+                            <span class="value" id="peakValue">0</span>
+                            <span class="unit">kW</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Highest Consumer -->
+                <section class="card highest-consumer-section">
+                    <h2 class="card-title">目前耗電最高家電</h2>
+                    <div class="consumer-content">
+                        <div class="consumer-icon" id="consumerIcon">
+                            <span>🏠</span>
+                        </div>
+                        <div class="consumer-info">
+                            <div class="consumer-name" id="consumerName">--</div>
+                            <div class="consumer-power">
+                                <span class="value" id="consumerPower">0</span>
+                                <span class="unit">kW</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Usage Chart -->
+                <section class="card usage-chart-section">
+                    <div class="card-header">
+                        <h2 class="card-title">用電量統計</h2>
+                        <div class="toggle-buttons">
+                            <button class="toggle-btn active" data-period="week">本週</button>
+                            <button class="toggle-btn" data-period="month">本月</button>
+                        </div>
+                    </div>
+                    <div id="usageChart" class="chart-container"></div>
+                    <div class="usage-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">總用電量：</span>
+                            <span class="summary-value" id="totalUsage">0</span>
+                            <span class="summary-unit">kWh</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">平均每日：</span>
+                            <span class="summary-value" id="avgUsage">0</span>
+                            <span class="summary-unit">kWh</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hourly Usage Chart -->
+                <section class="card hourly-chart-section">
+                    <h2 class="card-title">今日每小時用電趨勢</h2>
+                    <div id="hourlyChart" class="chart-container"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
