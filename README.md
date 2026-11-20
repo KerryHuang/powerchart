@@ -86,7 +86,7 @@ git clone https://github.com/KerryHuang/powerchart.git
 
 ## 授權
 
-此專案僅供學習與展示使用。
+[MIT](LICENSE)
 
 ## 作者
 
